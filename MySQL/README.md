@@ -36,3 +36,10 @@ EX-5 {
     WHERE `date` = '2020-06-20'
     AND HOUR (`hour`) >= '14';
 }
+
+Selezionare tutti i corsi di laurea magistrale 
+EX-6 {
+    SELECT *
+    FROM `degrees`
+    WHERE `level` = 'magistrale';
+}
