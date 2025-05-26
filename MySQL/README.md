@@ -9,3 +9,9 @@ EX-2 {
     FROM `courses`
     WHERE `CFU` > 10;
 }
+
+EX-3 {
+    SELECT *
+    FROM `students`
+    WHERE timestampdiff(YEAR, `date_of_birth`, CURDATE()) > 30;
+}
