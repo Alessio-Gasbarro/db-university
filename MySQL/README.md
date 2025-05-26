@@ -49,3 +49,10 @@ EX-7 {
     SELECT COUNT(*) AS `departments`
     FROM `departments`;
 }
+
+Quanti sono gli insegnanti che non hanno un numero di telefono?
+EX-8 {
+    SELECT COUNT(*)
+    FROM `teachers`
+    WHERE `phone` IS NULL
+}
