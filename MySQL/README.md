@@ -15,3 +15,10 @@ EX-3 {
     FROM `students`
     WHERE timestampdiff(YEAR, `date_of_birth`, CURDATE()) > 30;
 }
+
+EX-4 {
+    SELECT *
+    FROM `courses`
+    WHERE `year` = '1'
+    AND `period` = 'I semestre'
+}
