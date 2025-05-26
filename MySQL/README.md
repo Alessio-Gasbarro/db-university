@@ -43,3 +43,9 @@ EX-6 {
     FROM `degrees`
     WHERE `level` = 'magistrale';
 }
+
+Da quanti dipartimenti è composta l'università?
+EX-7 {
+    SELECT COUNT(*) AS `departments`
+    FROM `departments`;
+}
