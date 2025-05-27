@@ -12,3 +12,10 @@ Contare gli insegnanti che hanno l'ufficio nello stesso edificio
     FROM `teachers`
     GROUP BY `office_address`;
 }
+
+Calcolare la media dei voti di ogni appello d'esame
+- EX-3 {
+    SELECT `exam_id`, AVG(`vote`) AS `media_voti`
+    FROM `exam_student`
+    GROUP BY `exam_id`;
+}
