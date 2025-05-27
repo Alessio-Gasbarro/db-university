@@ -19,3 +19,11 @@ Calcolare la media dei voti di ogni appello d'esame
     FROM `exam_student`
     GROUP BY `exam_id`;
 }
+
+Contare quanti corsi di laurea ci sono per ogni dipartimento
+- EX-4 {
+    SELECT `departments`.`name` AS `dipartimento`, COUNT(`degrees`.`id`) AS `numero_corsi_laurea`
+    FROM `degrees`
+    JOIN `departments` ON `degrees`.`department_id` = `departments`.`id`
+    GROUP BY `departments`.`name`;
+}
