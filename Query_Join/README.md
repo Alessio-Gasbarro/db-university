@@ -42,3 +42,15 @@ Selezionare tutti i corsi di laurea con i relativi corsi e insegnanti
     JOIN `course_teacher` ON `courses`.`id` = `course_teacher`.`course_id`
     JOIN `teachers` ON `course_teacher`.`teacher_id` = `teachers`.`id`;
 }
+
+Selezionare tutti i docenti che insegnano nel Dipartimento di
+ Matematica (54)
+- EX-6 {
+    SELECT `teachers`.`name`, `teachers`.`surname`, `departments`.`name` AS `dipartimento`
+    FROM `teachers`
+    JOIN `course_teacher` ON `teachers`.`id` = `course_teacher`.`teacher_id`
+    JOIN `courses` ON `course_teacher`.`course_id` = `courses`.`id`
+    JOIN `degrees` ON `courses`.`degree_id` = `degrees`.`id`
+    JOIN `departments` ON `degrees`.`department_id` = departments.id
+    WHERE `departments`.`name` = 'Dipartimento di Matematica';
+}
