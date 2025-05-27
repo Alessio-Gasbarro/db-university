@@ -33,3 +33,12 @@ Selezionare tutti gli studenti con i dati relativi al corso di laurea a cui
     JOIN `departments` ON `degrees`.`department_id` = `departments`.`id`
     ORDER BY `students`.`surname`, `students`.`name`;
 }
+
+Selezionare tutti i corsi di laurea con i relativi corsi e insegnanti
+- EX-5 {
+    SELECT `degrees`.*, `courses`.`name` AS `course_name`, `teachers`.`name` AS `teacher_name`, `teachers`.`surname` AS `teacher_surname`
+    FROM `degrees`
+    JOIN `courses` ON `degrees`.`id` = `courses`.`degree_id`
+    JOIN `course_teacher` ON `courses`.`id` = `course_teacher`.`course_id`
+    JOIN `teachers` ON `course_teacher`.`teacher_id` = `teachers`.`id`;
+}
