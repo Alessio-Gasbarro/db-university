@@ -54,3 +54,18 @@ Selezionare tutti i docenti che insegnano nel Dipartimento di
     JOIN `departments` ON `degrees`.`department_id` = departments.id
     WHERE `departments`.`name` = 'Dipartimento di Matematica';
 }
+
+BONUS: Selezionare per ogni studente il numero di tentativi sostenuti
+ per ogni esame, stampando anche il voto massimo. Successivamente,
+ filtrare i tentativi con voto minimo 18
+- EX-7 BONUS {
+    SELECT `students`.`id`, `students`.`name`, `students`.`surname`, `courses`.`name` AS `course_name`, 
+    COUNT(`exam_student`.`vote`) AS `numero_tentativi`, 
+    MAX(`exam_student`.`vote`) AS `voto_massimo`
+    FROM `students`
+    JOIN `exam_student` ON `students`.`id` = `exam_student`.`student_id`
+    JOIN `exams` ON `exams`.`id` = `exam_student`.`exam_id`
+    JOIN `courses` ON `courses`.`id` = `exams`.`course_id`
+    GROUP BY `students`.`id`, `courses`.`id`
+    HAVING `voto_massimo` >= 18;
+}
